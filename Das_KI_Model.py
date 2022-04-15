@@ -41,7 +41,35 @@ os.makedirs(NEG_PATH)
 os.makedirs(ANC_PATH)
 
 
-# 2.Collecting Data. I've already done that
+# 2.Collecting Data 
+
+# In[ ]:
+
+
+#http://vis-www.cs.umass.edu/lfw/
+#Image dataset, download and extract
+
+
+# In[12]:
+
+
+# Move all Images to data/anchor
+for directory in os.listdir('lfw'):
+    for file in os.listdir(os.path.join('lfw',directory)):
+        EX_PATH = os.path.join('lfw',directory,file)
+        NEW_PATH = os.path.join(ANC_PATH,file)
+        os.replace(EX_PATH,NEW_PATH)
+
+
+# In[16]:
+
+
+# Share the pictures to the other folder, since I made a mistake in the previous step
+for x in range(int(len(os.listdir(ANC_PATH))/2)):
+     file = os.listdir(ANC_PATH)[x]
+     EX_PATH = os.path.join(ANC_PATH,file)
+     NEW_PATH = os.path.join(POS_PATH,file)
+     os.replace(EX_PATH,NEW_PATH)
 
 
 # 3.Load and Preprocess Images
@@ -66,6 +94,7 @@ dir_test = anchor.as_numpy_iterator()
 
 
 print(dir_test.next())
+# Showcase data
 
 
 # Preprocessing- Scale and Resize
