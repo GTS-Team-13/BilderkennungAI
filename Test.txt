@@ -1,0 +1,2 @@
+This is Andy's Branch. Over here, I could do whatever I want, without interrupting with the main code.
+First and foremost, I'm gonna try to code an image processor, so that the model could work with it.
